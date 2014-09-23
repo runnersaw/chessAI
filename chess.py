@@ -989,18 +989,18 @@ class View:
     def __init__(self, model, screen):
         self.model = model
         self.screen = screen
-        self.wp = pygame.transform.scale(pygame.image.load("white_pawn.png"), (size[0]/8, size[1]/8))
-        self.wr = pygame.transform.scale(pygame.image.load("white_rook.png"), (size[0]/8, size[1]/8))
-        self.wb = pygame.transform.scale(pygame.image.load("white_bishop.png"), (size[0]/8, size[1]/8))
-        self.wkn = pygame.transform.scale(pygame.image.load("white_knight.png"), (size[0]/8, size[1]/8))
-        self.wq = pygame.transform.scale(pygame.image.load("white_queen.png"), (size[0]/8, size[1]/8))
-        self.wk = pygame.transform.scale(pygame.image.load("white_king.png"), (size[0]/8, size[1]/8))
-        self.bp = pygame.transform.scale(pygame.image.load("black_pawn.png"), (size[0]/8, size[1]/8))
-        self.br = pygame.transform.scale(pygame.image.load("black_rook.png"), (size[0]/8, size[1]/8))
-        self.bb = pygame.transform.scale(pygame.image.load("black_bishop.png"), (size[0]/8, size[1]/8))
-        self.bkn = pygame.transform.scale(pygame.image.load("black_knight.png"), (size[0]/8, size[1]/8))
-        self.bq = pygame.transform.scale(pygame.image.load("black_queen.png"), (size[0]/8, size[1]/8))
-        self.bk = pygame.transform.scale(pygame.image.load("black_king.png"), (size[0]/8, size[1]/8))
+        self.wp = pygame.transform.scale(pygame.image.load("sprites/white_pawn.png"), (size[0]/8, size[1]/8))
+        self.wr = pygame.transform.scale(pygame.image.load("sprites/white_rook.png"), (size[0]/8, size[1]/8))
+        self.wb = pygame.transform.scale(pygame.image.load("sprites/white_bishop.png"), (size[0]/8, size[1]/8))
+        self.wkn = pygame.transform.scale(pygame.image.load("sprites/white_knight.png"), (size[0]/8, size[1]/8))
+        self.wq = pygame.transform.scale(pygame.image.load("sprites/white_queen.png"), (size[0]/8, size[1]/8))
+        self.wk = pygame.transform.scale(pygame.image.load("sprites/white_king.png"), (size[0]/8, size[1]/8))
+        self.bp = pygame.transform.scale(pygame.image.load("sprites/black_pawn.png"), (size[0]/8, size[1]/8))
+        self.br = pygame.transform.scale(pygame.image.load("sprites/black_rook.png"), (size[0]/8, size[1]/8))
+        self.bb = pygame.transform.scale(pygame.image.load("sprites/black_bishop.png"), (size[0]/8, size[1]/8))
+        self.bkn = pygame.transform.scale(pygame.image.load("sprites/black_knight.png"), (size[0]/8, size[1]/8))
+        self.bq = pygame.transform.scale(pygame.image.load("sprites/black_queen.png"), (size[0]/8, size[1]/8))
+        self.bk = pygame.transform.scale(pygame.image.load("sprites/black_king.png"), (size[0]/8, size[1]/8))
 
     def draw_board(self):
         self.screen.fill(pygame.Color(139,69,19))

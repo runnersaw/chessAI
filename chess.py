@@ -88,7 +88,7 @@ class Rook(Piece):
                 count = 0
                 while run:
                     count+=1
-                    if count>7:
+                    if count>8:
                         run = False
                     if self.team == 'White':
                         if (self.pos[0], self.pos[1]+count) not in pieces.get_white_spaces():
@@ -109,7 +109,7 @@ class Rook(Piece):
                 count = 0
                 while run:
                     count+=1
-                    if count>7:
+                    if count>8:
                         run = False
                     if self.team == 'White':
                         if (self.pos[0], self.pos[1]-count) not in pieces.get_white_spaces():
@@ -130,7 +130,7 @@ class Rook(Piece):
                 count = 0
                 while run:
                     count+=1
-                    if count>7:
+                    if count>8:
                         run = False
                     if self.team == 'White':
                         if (self.pos[0]-count, self.pos[1]) not in pieces.get_white_spaces():
@@ -151,7 +151,7 @@ class Rook(Piece):
                 count = 0
                 while run:
                     count+=1
-                    if count>7:
+                    if count>8:
                         run = False
                     if self.team == 'White':
                         if (self.pos[0]+count, self.pos[1]) not in pieces.get_white_spaces():
@@ -170,8 +170,6 @@ class Rook(Piece):
         moves = self.check_valid_moves(moves)
         return moves
                             
-                            
-    
 class Bishop(Piece):
     def __init__(self, pos, team):
         Piece.__init__(self, pos, team)
@@ -186,7 +184,7 @@ class Bishop(Piece):
                 count = 0
                 while run:
                     count+=1
-                    if count>7:
+                    if count>8:
                         run = False
                     if self.team == 'White':
                         if (self.pos[0]+count, self.pos[1]+count) not in pieces.get_white_spaces():
@@ -207,7 +205,7 @@ class Bishop(Piece):
                 count = 0
                 while run:
                     count+=1
-                    if count>7:
+                    if count>8:
                         run = False
                     if self.team == 'White':
                         if (self.pos[0]+count, self.pos[1]-count) not in pieces.get_white_spaces():
@@ -228,7 +226,7 @@ class Bishop(Piece):
                 count = 0
                 while run:
                     count+=1
-                    if count>7:
+                    if count>8:
                         run = False
                     if self.team == 'White':
                         if (self.pos[0]-count, self.pos[1]+count) not in pieces.get_white_spaces():
@@ -249,7 +247,7 @@ class Bishop(Piece):
                 count = 0
                 while run:
                     count+=1
-                    if count>7:
+                    if count>8:
                         run = False
                     if self.team == 'White':
                         if (self.pos[0]-count, self.pos[1]-count) not in pieces.get_white_spaces():
@@ -406,7 +404,7 @@ class Queen(Piece):
                 count = 0
                 while run:
                     count+=1
-                    if count>7:
+                    if count>8:
                         run = False
                     if self.team == 'White':
                         if (self.pos[0]+count, self.pos[1]+count) not in pieces.get_white_spaces():
@@ -427,7 +425,7 @@ class Queen(Piece):
                 count = 0
                 while run:
                     count+=1
-                    if count>7:
+                    if count>8:
                         run = False
                     if self.team == 'White':
                         if (self.pos[0]+count, self.pos[1]-count) not in pieces.get_white_spaces():
@@ -448,7 +446,7 @@ class Queen(Piece):
                 count = 0
                 while run:
                     count+=1
-                    if count>7:
+                    if count>8:
                         run = False
                     if self.team == 'White':
                         if (self.pos[0]-count, self.pos[1]+count) not in pieces.get_white_spaces():
@@ -469,7 +467,7 @@ class Queen(Piece):
                 count = 0
                 while run:
                     count+=1
-                    if count>7:
+                    if count>8:
                         run = False
                     if self.team == 'White':
                         if (self.pos[0]-count, self.pos[1]-count) not in pieces.get_white_spaces():
@@ -492,7 +490,7 @@ class Queen(Piece):
                 count = 0
                 while run:
                     count+=1
-                    if count>7:
+                    if count>8:
                         run = False
                     if self.team == 'White':
                         if (self.pos[0], self.pos[1]+count) not in pieces.get_white_spaces():
@@ -513,7 +511,7 @@ class Queen(Piece):
                 count = 0
                 while run:
                     count+=1
-                    if count>7:
+                    if count>8:
                         run = False
                     if self.team == 'White':
                         if (self.pos[0], self.pos[1]-count) not in pieces.get_white_spaces():
@@ -534,7 +532,7 @@ class Queen(Piece):
                 count = 0
                 while run:
                     count+=1
-                    if count>7:
+                    if count>8:
                         run = False
                     if self.team == 'White':
                         if (self.pos[0]-count, self.pos[1]) not in pieces.get_white_spaces():
@@ -555,7 +553,7 @@ class Queen(Piece):
                 count = 0
                 while run:
                     count+=1
-                    if count>7:
+                    if count>8:
                         run = False
                     if self.team == 'White':
                         if (self.pos[0]+count, self.pos[1]) not in pieces.get_white_spaces():
@@ -827,8 +825,6 @@ class AI:
 
     def return_model_to_scores(self, model, depth):
         dictionary_of_scores = self.return_dictionary_of_scores(model, depth, depth)
-        print dictionary_of_scores
-        print self.flatten_dictionary(dictionary_of_scores, depth, depth)
         return self.flatten_dictionary(dictionary_of_scores, depth, depth)
 
     def convert_model_to_move(self, model):
@@ -907,7 +903,10 @@ class Model:
                         if self.pieces.get_piece_from_position(pos) == None and pos not in self.pieces.get_threatened_by_black():
                             pos = (piece.pos[0], piece.pos[1]-2)
                             if self.pieces.get_piece_from_position(pos) == None and pos not in self.pieces.get_threatened_by_black():
-                                moves.append(pos)
+                                pos = (piece.pos[0], piece.pos[1]-3)
+                                if self.pieces.get_piece_from_position(pos) == None and pos not in self.pieces.get_threatened_by_black():
+                                    pos = (piece.pos[0], piece.pos[1]-2)
+                                    moves.append(pos)
                     if rooks[1].moved == False:
                         pos = (piece.pos[0], piece.pos[1]+1)
                         if self.pieces.get_piece_from_position(pos) == None and pos not in self.pieces.get_threatened_by_black():
@@ -922,7 +921,10 @@ class Model:
                         if self.pieces.get_piece_from_position(pos) == None and pos not in self.pieces.get_threatened_by_white():
                             pos = (piece.pos[0], piece.pos[1]-2)
                             if self.pieces.get_piece_from_position(pos) == None and pos not in self.pieces.get_threatened_by_white():
-                                moves.append(pos)
+                                pos = (piece.pos[0], piece.pos[1]-3)
+                                if self.pieces.get_piece_from_position(pos) == None and pos not in self.pieces.get_threatened_by_white():
+                                    pos = (piece.pos[0], piece.pos[1]-2)
+                                    moves.append(pos)
                     if rooks[1].moved == False:
                         pos = (piece.pos[0], piece.pos[1]+1)
                         if self.pieces.get_piece_from_position(pos) == None and pos not in self.pieces.get_threatened_by_white():
@@ -961,6 +963,12 @@ class Model:
         if self.turn == piece.team:
             if space in self.get_valid_moves(piece):
                 self.pieces.move(piece, space)
+                if isinstance(piece, Pawn):
+                    print "pawn moved"
+                    print space
+                    if piece.team == "White" and space[0]==1:
+                        print "became queen"
+                        piece = Queen(piece.pos, piece.team)
                 self.check_win(piece.team)
                 self.change_turn()
                 self.selected = None
@@ -1075,8 +1083,9 @@ class View:
         self.screen.blit(sprite, pos)
 
 class Controller:
-    def __init__(self, model):
+    def __init__(self, model, view):
         self.model = model
+        self.view = view
 
     def handle_pygame_event(self, event):
         if event.type == MOUSEBUTTONUP:
@@ -1090,12 +1099,23 @@ class Controller:
                     secondConditional = False
             if secondConditional:
                 if self.model.selected != None:
-                    print self.model.get_valid_moves(self.model.selected)
+                    #print self.model.get_valid_moves(self.model.selected)
                     if click_position in self.model.selected.valid_moves(self.model.pieces):
                         self.model.move(click_position)
                     elif click_position in self.model.get_valid_moves(self.model.selected):
                         print 'ayy'
-                        self.model.castle(click_position)
+                        self.self.model.castle(click_position)
+                    if self.model.white_win:
+                        self.view.draw_board()
+                    elif self.model.black_win:
+                        self.view.draw_board()
+                    else:
+                        self.view.draw()
+                    pygame.display.update()
+            if self.model.turn == self.model.ai.team:
+                [[piece, move], score] = self.model.ai.find_best_move(self.model, 2)
+                self.model.selected = piece
+                self.model.move(move)
 
     def mouse_position_to_position(self, mouse_position):
         x = mouse_position[0]
@@ -1115,7 +1135,7 @@ if __name__ == "__main__":
 
     model = Model()
     view = View(model, screen)
-    controller = Controller(model)
+    controller = Controller(model, view)
 
     while True:
         for event in pygame.event.get():
